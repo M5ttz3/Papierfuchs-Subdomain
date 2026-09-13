@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Papierfuchs – Schule ● Büro ● Kreatives</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2–family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@400;500;600;700&display=swap');
+
+  :root {
+    --teal:    #1a9aaa;
+    --teal-d:  #137080;
+    --teal-bg: #1295a4;
+    --red:     #e8233a;
+    --pink:    #e0236a;
+    --green:   #4db348;
+    --blue:    #2357b4;
+    --purple:  #8b3d9e;
+    --orange:  #f4831f;
+    --navy:    #1c2f5e;
+    --cream:   #fafcfc;
+    --white:   #ffffff;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--cream);
+    color: var(--navy);
+    line-height: 1.7;
+  }
+
+  .section, .contact-block {
+    scroll-margin-top: 65px;
+  }
+
+  /* ––– VERLINKUNGSZEILE / TOP NAVIGATION ––– */
+  .top-nav {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: #ffffff;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    border-bottom: 1px solid #e4ecf0;
+  }
+  .nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0.55rem 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.15rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--navy);
+    font-size: 0.88rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: color 0.2s ease, border-color 0.2s ease;
+    padding: 0.25rem 0;
+    border-bottom: 2px solid transparent;
+  }
+  .nav-links a:hover {
+    color: var(--teal);
+    border-bottom-color: var(--teal);
+  }
+  .nav-cta {
+    background: var(--navy);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0.5rem 1.25rem;
+    border-radius: 2rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.2s ease;
+  }
+  .nav-cta:hover {
+    background: var(--teal);
+  }
+  @media (max-width: 900px) {
+    .nav-container {
+      padding: 0.45rem 0.8rem;
+      gap: 0.6rem;
+    }
+    .nav-links {
+      gap: 0.85rem;
+    }
+    .nav-links a {
+      font-size: 0.82rem;
+    }
+    .nav-cta {
+      padding: 0.4rem 0.9rem;
+      font-size: 0.8rem;
+    }
+  }
+
+  /* ––– HEADER ––– */
+  header {
+    background: #0197b2;
+    padding: 0 0 0.8rem;
+    text-align: center;
+    position: relative;
+  }
+  .logo-wrap {
+    padding: 0.5rem 1rem 0.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .logo-wrap img {
+    max-width: min(240px, 92vw);
+    height: auto;
+    display: block;
+    border-radius: .5rem;
+  }
+  .tagline {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: var(--navy);
+    letter-spacing: .06em;
+    padding: .1rem 0;
+  }
+  .delivery-badge {
+    display: inline-block;
+    margin-top: 1rem;
+    background: var(--teal-bg);
+    color: #fff;
+    font-size: .88rem;
+    font-weight: 700;
+    padding: .45rem 1.4rem;
+    border-radius: 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  }
+
+  /* ---- BRANDAKTUELL ---- */
+  .brandaktuell {
+    background: var(--green);
+    color: #fff;
+    text-align: center;
+    padding: 1rem 1.5rem;
+    font-size: .97rem;
+    font-weight: 500;
+    line-height: 1.55;
+  }
+  .brandaktuell strong { color: #fff; font-weight: 800; }
+
+  /* ---- SECTIONS ---- */
+  .section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+  }
+  .section + .section {
+    border-top: 2px dashed #cde8ea;
+  }
+  .section-label {
+    display: inline-block;
+    font-family: 'Nunito', sans-serif;
+    font-size: .72rem;
+    font-weight: 900;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: .8rem;
+  }
+  .section h2 {
+    font-family: 'Nunito', sans-serif;
+    font-size: clamp(1.7rem, 3.5vw, 2.3rem);
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .section h2 span.r  { color: var(--red); }
+  .section h2 span.p  { color: var(--pink); }
+  .section h2 span.g  { color: var(--green); }
+  .section h2 span.b  { color: var(--blue); }
+  .section h2 span.u  { color: var(--purple); }
+  .section h2 span.o  { color: var(--orange); }
+  .section h2 span.t  { color: var(--teal); }
+
+  .section p {
+    font-size: 1rem;
+    color: #2a3d4e;
+    margin-bottom: .85rem;
+    max-width: 680px;
+  }
+
+  /* ---- TAG LIST ---- */
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .45rem;
+    margin-top: 1.2rem;
+  }
+  .tag {
+    font-size: .8rem;
+    font-weight: 600;
+    padding: .3rem .9rem;
+    border-radius: 2rem;
+    border: 2px solid currentColor;
+  }
+  .tag.teal   { color: var(--teal);   background: #e6f6f8; }
+  .tag.green  { color: var(--green);  background: #edf9ec; }
+  .tag.blue   { color: var(--blue);   background: #e8eef8; }
+  .tag.purple { color: var(--purple); background: #f3e9f7; }
+  .tag.orange { color: var(--orange); background: #fff0e5; }
+  .tag.red    { color: var(--red);    background: #fdeaec; }
+  .tag.pink   { color: var(--pink);   background: #fde8f1; }
+
+  .tag.filled {
+    background: currentColor;
+  }
+  .tag.filled span { color: #fff; }
+
+  /* ---- HIGHLIGHT BOX ---- */
+  .highlight-box {
+    border-radius: 1rem;
+    padding: 1.3rem 1.5rem;
+    margin-top: 1.4rem;
+    font-size: .97rem;
+    font-weight: 500;
+  }
+  .hl-green  { background: #edf9ec; border-left: 4px solid var(--green); color: #1a4a19; }
+  .hl-blue   { background: #e8eef8; border-left: 4px solid var(--blue);  color: #162a5c; }
+  .hl-purple { background: #f3e9f7; border-left: 4px solid var(--purple);color: #3d1050; }
+  .hl-teal   { background: #e4f5f7; border-left: 4px solid var(--teal);  color: #0d4a54; }
+
+  /* ---- FERIENHEFTE BLOCK ---- */
+  .ferien-block {
+    background: linear-gradient(135deg, var(--green) 0%, #3aa035 100%);
+    color: #fff;
+    border-radius: 1.2rem;
+    padding: 2rem 1.8rem;
+    margin: 0 1.5rem 0;
+  }
+  .ferien-block h2 { color: #fff; }
+  .ferien-block p  { color: rgba(255,255,255,.92); }
+  .ferien-block .tag { border-color: rgba(255,255,255,.6); color: #fff; background: rgba(255,255,255,.15); }
+
+  /* ---- DELIVERY ---- */
+  .lieferung-wrap {
+    background: var(--teal-bg);
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    color: #fff;
+  }
+  .lieferung-wrap h3 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-bottom: .5rem;
+    color: #fff;
+  }
+  .lieferung-wrap p { color: rgba(255,255,255,.88); font-size: .97rem; }
+
+  /* ---- CONTACT ---- */
+  .contact-block {
+    background: var(--navy);
+    color: #fff;
+    padding: 2.5rem 1.5rem 3rem;
+    text-align: center;
+  }
+  .contact-block h3 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: .8rem;
+  }
+  .contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .55rem;
+    margin-top: 1rem;
+  }
+  .contact-list li {
+    font-size: .97rem;
+    color: #b8d0dc;
+  }
+  .contact-list a {
+    color: #7dd3ea;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .contact-list a:hover { text-decoration: underline; }
+
+  .cta-btn {
+    display: inline-block;
+    margin-top: 1.4rem;
+    padding: .75rem 2rem;
+    border-radius: 2rem;
+    background: var(--teal);
+    color: #fff;
+    font-weight: 700;
+    font-size: .95rem;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(0,0,0,.25);
+  }
+
+  .book-card {
+    background: #fff;
+    border-radius: .8rem;
+    padding: 0;
+    border: 1.5px solid #e0e0e0;
+    box-shadow: 0 2px 10px rgba(0,0,0,.07);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .book-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  .book-card-body {
+    padding: .9rem 1rem;
+    flex: 1;
+  }
+  .book-card-body strong { font-size: .9rem; display: block; margin-bottom: .3rem; }
+  .book-card-body p { font-size: .8rem; color: #555; line-height: 1.4; margin: 0; }
+  /* Scrolling photo strip */
+  .photo-strip-wrap {
+    overflow: hidden;
+    background: var(--navy);
+    padding: 1.2rem 0;
+  }
+  .photo-strip {
+    display: flex;
+    gap: 1rem;
+    animation: scroll-strip 48s linear infinite;
+    width: max-content;
+  }
+  .photo-strip:hover { animation-play-state: paused; }
+  @keyframes scroll-strip {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .photo-strip img {
+    height: 240px;
+    width: auto;
+    border-radius: .7rem;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0,0,0,.35);
+    flex-shrink: 0;
+  }
+  /* Flyer section */
+  .flyer-wrap {
+    background: linear-gradient(135deg, #e6f5f7 0%, #d0ecf0 100%);
+    padding: 3rem 1.5rem;
+    text-align: center;
+    border-top: 3px solid var(--teal);
+    border-bottom: 3px solid var(--teal);
+  }
+  .flyer-wrap img {
+    max-width: min(420px, 90vw);
+    border-radius: 1rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,.18);
+    display: block;
+    margin: 0 auto;
+  }
+  .flyer-wrap h3 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--teal-d);
+    margin-bottom: .5rem;
+  }
+  /* Impressum */
+  .impressum-wrap {
+    background: #111820;
+    color: #8a9aaa;
+    padding: 2rem 1.5rem;
+    font-size: .82rem;
+    line-height: 1.7;
+  }
+  .impressum-wrap a { color: #7dd3ea; }
+  .impressum-wrap h4 {
+    font-family: 'Nunito', sans-serif;
+    font-size: .95rem;
+    font-weight: 800;
+    color: #c8d8e4;
+    margin-bottom: .5rem;
+  }
+  .impressum-btn {
+    background: transparent;
+    border: 1px solid #3a4a58;
+    color: #8a9aaa;
+    font-family: inherit;
+    font-size: .85rem;
+    padding: .5rem 1.4rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: all .2s ease;
+  }
+  .impressum-btn:hover {
+    color: #fff;
+    border-color: #7dd3ea;
+  }
+
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(175px, 1fr)); gap: 1rem; margin-top: 1.3rem; }
+  .photo-card { border-radius: .8rem; overflow: hidden; box-shadow: 0 3px 12px rgba(0,0,0,.1); }
+  .photo-card img { width: 100%; height: 220px; object-fit: cover; display: block; }
+  .photo-card-body { background: #fff; padding: .9rem 1rem; border: 1.5px solid #e0e0e0; border-top: none; border-radius: 0 0 .8rem .8rem; }
+  .photo-card-body strong { font-size: .9rem; color: var(--navy); display: block; margin-bottom: .25rem; }
+  .photo-card-body p { font-size: .8rem; color: #555; line-height: 1.4; margin: 0; }
+
+  @media (max-width: 600px) {
+    .ferien-block { margin: 0 1rem; border-radius: .8rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- VERLINKUNGSZEILE -->
+<nav class="top-nav">
+  <div class="nav-container">
+    <div class="nav-links">
+      <a href="#geschaeft">Unser Geschäft</a>
+      <a href="#schule">Schule</a>
+      <a href="#buecher">Bücher</a>
+      <a href="#kreativ">Kreatives</a>
+      <a href="#feierlichkeiten">Feierlichkeiten</a>
+      <a href="#dekoration">Deko</a>
+      <a href="#spielzeug">Spielzeug</a>
+      <a href="#geschenke">Geschenke</a>
+    </div>
+    <a href="#kontakt" class="nav-cta">Kontakt</a>
+  </div>
+</nav>
+
+<!-- HEADER mit echtem Logo -->
+<header>
+  <div class="logo-wrap">
+    <img src="assets/bilder/logo.jpeg" alt="Papierfuchs Logo – Schule ● Büro ● Kreatives">
+  </div>
+  <p class="tagline">Schule &bull; Büro &bull; Kreatives</p>
+  <p class="tagline" style="font-size:.85rem; color: var(--navy); opacity: 0.8; margin-top:.2rem;">🏠 Dein regionales Geschäft in Rohrbach an der Lafnitz</p>
+</header>
+
+<!-- UNSER GESCHÄFT -->
+<div class="section" id="geschaeft">
+  <span class="section-label">Unser Geschäft</span>
+  <h2>Willkommen bei Papierfuchs in Vorau</h2>
+  <p>
+    Ab 01.10.2026 findest du uns direkt vor Ort in Vorau – mit einem eigenen Ladengeschäft zum Anschauen, Stöbern und Beraten lassen. Bei uns dreht sich alles um Schule, Büro und Kreatives, dazu Bücher, Spielzeug für die Kleinen und alles für schöne Anlässe wie Hochzeit, Taufe, Erstkommunion und Firmung.
+  </p>
+  <p>
+    Ob Schulliste, Geschenkidee oder Dekoration für Haus und Garten – bei uns wirst du fündig, persönlich beraten und ganz ohne lange Wege.
+  </p>
+</div>
+
+<!-- SCHULE -->
+<div class="section" id="schule">
+  <span class="section-label">🟚 Für die Schule</span>
+  <h2><span class="r">Al</span><span class="p">les</span> <span class="g">fü</span><span class="b">r</span> <span class="u">de</span><span class="o">n</span> <span class="t">Schulstart</span></h2>
+  <p>
+    Dein regionaler Schulbedarf-Partner ab 01.10.2026 direkt in Vorau – bei Papierfuchs
+    findest du alle Artikel der Schulliste, ohne lange Wege oder Wartezeiten.
+    Von Heften über Stifte bis zu Kleber: wir stellen alles für dich zusammen.
+  </p>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 1rem; margin-top: 1.3rem;">
+
+    <div style="background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #cde8ea; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
+      <div style="font-size:1.6rem; margin-bottom:.4rem;">🟓</div>
+      <strong style="color:var(--teal); font-size:.9rem;">Ursus Formati Hefte</strong>
+      <p style="font-size:.82rem; color:#555; margin: .4rem 0 0; line-height:1.4;">Österreichische Qualitätshefte mit aufbauenden Lineaturen – von der Vorschule bis zur 4. Klasse. Liniert, kariert, Schreib-, Rechen- &amp; Wörterhefte.</p>
+    </div>
+
+    <div style="background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #d8eef5; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
+      <div style="font-size:1.6rem; margin-bottom:.4rem;">🟓</div>
+      <strong style="color:var(--blue); font-size:.9rem;">Hefte in allen Lineaturarten</strong>
+      <p style="font-size:.82rem; color:#555; margin: .4rem 0 0; line-height:1.4;">Von Schreibheft S1–S4 über Rechenheft bis Geschichtenheft – alle gängigen Schullineaturformate verfügbar.</p>
+    </div>
+
+    <div style="background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #fdeaec; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
+      <div style="font-size:1.6rem; margin-bottom:.4rem;">🖌️</div>
+      <strong style="color:var(--red); font-size:.9rem;">Buntstifte</strong>
+      <p style="font-size:.82rem; color:#555; margin: .4rem 0 0; line-height:1.4;">Hochwertige Buntstifte für Schule und Freizeit – in verschiedenen Größen und Sets für alle Altersstufen.</p>
+    </div>
+
+    <div style="background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #fde8f1; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
+      <div style="font-size:1.6rem; margin-bottom:.4rem;">✍️</div>
+      <strong style="color:var(--pink); font-size:.9rem;">Jolly Personalisierte Stifte</strong>
+      <p style="font-size:.82rem; color:#555; margin: .4rem 0 0; line-height:1.4;">Jolly Stifte mit dem Namen deines Kindes – damit im Schulalltag nichts verloren geht. Das ideale Schulstart-Geschenk!</p>
+    </div>
+
+    <div style="background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #e8d8f5; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
+      <div style="font-size:1.6rem; margin-bottom:.4rem;">✂️</div>
+      <strong style="color:var(--purple); font-size:.9rem;">Schere</strong>
+      <p style="font-size:.82rem; color:#555; margin: .4rem 0 0; line-height:1.4;">Kindgerechte Scheren für sicheres und sauberes Schneiden – in der Schule und beim Basteln zuhause.</p>
+    </div>
+
+    <div style="background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #fff0e5; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
+      <div style="font-size:1.6rem; margin-bottom:.4rem;">🟡</div>
+      <strong style="color:var(--orange); font-size:.9rem;">UHU Kleber</strong>
+      <p style="font-size:.82rem; color:#555; margin: .4rem 0 0; line-height:1.4;">Der bewährte Schulkleber – als Stift, Flasche oder Stick. Zuverlässig für alle Bastel- und Schulprojekte.</p>
+    </div>
+
+  </div>
+
+  <div style="margin-top:1.2rem; border-radius:.8rem; overflow:hidden; box-shadow:0 4px 14px rgba(0,0,0,.1);">
+    <img style="width: 100%; height: 380px; object-fit: cover; border-radius: .8rem; box-shadow: 0 4px 15px rgba(0,0,0,.1); display: block;" src="assets/bilder/schultuete1.jpeg" alt="Jolly Schulbedarf Stifte UHU bei Papierfuchs" loading="lazy">
+  </div>
+  <div class="highlight-box hl-teal" style="margin-top:1rem;">
+    🏠 <strong>Regional &amp; persönlich:</strong> Schick uns einfach die Schulliste deines Kindes – wir stellen alles gerne für dich zusammen!
+  </div>
+  <div class="tag-list">
+    <span class="tag teal">Alle Schullisteartikel</span>
+    <span class="tag blue">Ursus Formati Hefte</span>
+    <span class="tag pink">Jolly Personalisierte Stifte</span>
+    <span class="tag red">Buntstifte</span>
+    <span class="tag purple">Schere</span>
+    <span class="tag orange">UHU Kleber</span>
+  </div>
+</div>
+
+
+<!-- KARTENSETS -->
+<div class="section">
+  <span class="section-label">🃏 Kartensets &amp; Spiele</span>
+  <h2><span class="p">Stark</span><span class="b">e</span> <span class="g">Id</span><span class="r">een</span> <span class="u">für</span> <span class="o">Kinder</span></h2>
+  <p>
+    Kreativität fördern, Gespräche anregen, gemeinsam lachen – unsere Kartensets
+    sind kleine Schätze für Familien, Kindergärten und Tagesmütter.
+    Perfekt als Geschenk oder für den Alltag!
+  </p>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.2rem; margin-top: 1.3rem;">
+
+    <div class="photo-card">
+      <img src="assets/bilder/extracted_image_4.jpeg" alt="Starke Ideen Kartenset – Kreativität von Kindern fördern">
+      <div class="photo-card-body">
+        <strong style="color:var(--purple);">🦉 Starke Ideen – 40 Kreativkarten</strong>
+        <p>"Reise ins All", "Superhelden-Ausrüstung" &amp; mehr – 40 Karten, die Fantasie und Kreativität von Kindern wecken. Von Rüsselfuchs.</p>
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <img src="assets/bilder/extracted_image_5.jpeg" alt="Würdest du lieber...– Kartenset für Kinder">
+      <div class="photo-card-body">
+        <strong style="color:var(--teal);">🦝 Würdest du lieber...– Starke Fragen für Kinder</strong>
+        <p>Lustige Entweder-oder-Fragen für unterwegs, beim Essen oder im Auto – bringt die ganze Familie zum Nachdenken und Lachen!</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="highlight-box hl-purple" style="margin-top:1.5rem;">
+    🃏 <strong>Auf Anfrage:</strong> Weitere Kartensets und Spiele verfügbar – einfach fragen, wir schauen was wir für dich haben!
+  </div>
+  <div class="tag-list">
+    <span class="tag purple">Kreativkarten</span>
+    <span class="tag teal">Fragekarten</span>
+    <span class="tag green">Familienspaß</span>
+    <span class="tag orange">Geschenkidee</span>
+    <span class="tag blue">Für Kinder &amp; Familie</span>
+  </div>
+</div>
+
+<!-- BÜCHER FOTO-STRIP -->
+<div class="photo-strip-wrap">
+  <div class="photo-strip">
+      <img src="assets/bilder/extracted_image_6.jpeg" alt="Kinderbücher Auswahl bei Papierfuchs" loading="lazy">
+      <img src="assets/bilder/extracted_image_7.jpeg" alt="Bücher für Kinder und Erwachsene bei Papierfuchs" loading="lazy">
+      <img src="assets/bilder/extracted_image_8.jpeg" alt="Kinderbücher Regal Papierfuchs" loading="lazy">
+      <img src="assets/bilder/extracted_image_9.jpeg" alt="Bücher Auswahl Papierfuchs Rohrbach an der Lafnitz" loading="lazy">
+      <img src="assets/bilder/durchlauf_1.jpeg" alt="Papierfuchs Schaufenster" loading="lazy">
+      <img src="assets/bilder/durchlauf_2.jpeg" alt="Papierfuchs Laden" loading="lazy">
+      <img src="assets/bilder/durchlauf_3.jpeg" alt="Papierfuchs Produkte" loading="lazy">
+      <img src="assets/bilder/durchlauf_4.jpeg" alt="Papierfuchs Dekoration" loading="lazy">
+      <img src="assets/bilder/extracted_image_6.jpeg" alt="Kinderbücher Auswahl bei Papierfuchs" loading="lazy">
+      <img src="assets/bilder/extracted_image_7.jpeg" alt="Bücher für Kinder und Erwachsene bei Papierfuchs" loading="lazy">
+      <img src="assets/bilder/extracted_image_8.jpeg" alt="Kinderbücher Regal Papierfuchs" loading="lazy">
+      <img src="assets/bilder/extracted_image_9.jpeg" alt="Bücher Auswahl Papierfuchs Rohrbach an der Lafnitz" loading="lazy">
+      <img src="assets/bilder/durchlauf_1.jpeg" alt="Papierfuchs Schaufenster" loading="lazy">
+      <img src="assets/bilder/durchlauf_2.jpeg" alt="Papierfuchs Laden" loading="lazy">
+      <img src="assets/bilder/durchlauf_3.jpeg" alt="Papierfuchs Produkte" loading="lazy">
+      <img src="assets/bilder/durchlauf_4.jpeg" alt="Papierfuchs Dekoration" loading="lazy">
+  </div>
+</div>
+
+<!-- BÜCHER -->
+<div class="section" id="buecher">
+  <span class="section-label">🟖 Bücher</span>
+  <h2>Bücher für <span class="b">je</span><span class="r">den</span> <span class="g">Le</span><span class="u">se</span><span class="o">hunger</span></h2>
+  <p>
+    Papierfuchs ist deine regionale Anlaufstelle für Bücher aller Art – ohne langen Weg in die Stadt.
+    Bei uns findest du eine <strong>große Auswahl direkt im Geschäft</strong>, plus unseren
+    zuverlässigen <strong>Bestellservice für alles Weitere</strong>.
+  </p>
+  <p>
+    Ob Bilderbuch, Kinderroman, Jugendbuch, Krimi, Sachbuch oder Belletristik für Erwachsene:
+    Komm einfach zum Stöbern vorbei oder sag uns, welchen Titel du suchst – wir besorgen jedes
+    gewünschte Buch für dich. Regional, persönlich, unkompliziert.
+  </p>
+  <div class="highlight-box hl-blue">
+    ✔ <strong>So geht's:</strong> Buchtitel, Autor oder auch nur das Thema angeben – wir kümmern uns um den Rest und melden uns schnell mit Verfügbarkeit &amp; Preis!
+  </div>
+  <h3 style="font-family:'Nunito',sans-serif; font-size:1.15rem; font-weight:800; margin: 1.8rem 0 .8rem; color:var(--navy);">★ Beliebte Titel – direkt bei uns anfragen</h3>
+
+  <div class="card-grid">
+
+    <!-- Der Löwe in dir -->
+    <div class="book-card">
+      <img src="assets/bilder/DerLoeweInDir.jpeg" alt="Der Löwe in dir" style="width:100%; height:200px; object-fit:cover; display:block; border-radius:.8rem .8rem 0 0;">
+      <div class="book-card-body">
+        <strong style="color:#7B3F00;">Der Löwe in dir</strong>
+        <p>Eine warmherzige Geschichte Über Mut und Selbstvertrauen. Ab 3 Jahren.</p>
+      </div>
+    </div>
+
+    <!-- Trau dich, Koalabär -->
+    <div class="book-card">
+      <img src="assets/bilder/TrauDichKoala.jpeg" alt="Trau dich, Koalabär" style="width:100%; height:200px; object-fit:cover; display:block; border-radius:.8rem .8rem 0 0;">
+      <div class="book-card-body">
+        <strong style="color:#1a5c35;">Trau dich, Koalabär</strong>
+        <p>Mit einem Schuss Selbstvertrauen in den australischen Busch. Ab 3 Jahren.</p>
+      </div>
+    </div>
+
+    <!-- Die Streithörnchen -->
+    <div class="book-card">
+      <img src="assets/bilder/DieStreitHornchen.jpeg" alt="Die Streithörnchen" style="width:100%; height:200px; object-fit:cover; display:block; border-radius:.8rem .8rem 0 0;">
+      <div class="book-card-body">
+        <strong style="color:#c0392b;">Die Streithörnchen</strong>
+        <p>Über Streit, Freundschaft und die Freude des Teilens. Ab 3 Jahren.</p>
+      </div>
+    </div>
+
+    <!-- Kleiner Wolf in weiter Welt -->
+    <div class="book-card">
+      <img src="assets/bilder/KleinerWolfInWeiterWelt.jpeg" alt="Kleiner Wolf in weiter Welt" style="width:100%; height:200px; object-fit:cover; display:block; border-radius:.8rem .8rem 0 0;">
+      <div class="book-card-body">
+        <strong style="color:#1a4a7a;">Kleiner Wolf in weiter Welt</strong>
+        <p>Eine Geschichte Über Heimweh und das große Abenteuer. Ab 3 Jahren.</p>
+      </div>
+    </div>
+
+    <!-- Das Kamel hat schlechte Laune -->
+    <div class="book-card">
+      <img src="assets/bilder/DasKamelHatSchlechteLaune.jpeg" alt="Das Kamel hat schlechte Laune" style="width:100%; height:200px; object-fit:cover; display:block; border-radius:.8rem .8rem 0 0;">
+      <div class="book-card-body">
+        <strong style="color:#9c5a00;">Das Kamel hat schlechte Laune</strong>
+        <p>Herrlich humorvoll – Über schlechte Laune und wie sie verfliegt. Ab 3 Jahren.</p>
+      </div>
+    </div>
+
+    <!-- Das kleine böse Buch -->
+    <div class="book-card">
+      <img src="assets/bilder/DasKleineBoseBuch.jpeg" alt="Das kleine böse Buch" style="width:100%; height:200px; object-fit:cover; display:block; border-radius:.8rem .8rem 0 0;">
+      <div class="book-card-body">
+        <strong style="color:#3d0020;">Das kleine böse Buch</strong>
+        <p>Das freche Buch, das selbst mitreden will! Interaktiver Spaß ab 6 Jahren. Von Magnus Myst.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="highlight-box hl-blue" style="margin-top:1.5rem;">
+    💡 <strong>Du hast einen anderen Titel im Sinn–</strong> Kein Problem – wir haben Zugang zu fast allen lieferbaren Büchern. Einfach Titel oder Thema angeben und wir besorgen es für dich!
+  </div>
+
+  <div class="tag-list">
+    <span class="tag blue">Bilderbücher</span>
+    <span class="tag purple">Kinderbücher</span>
+    <span class="tag teal">Jugendbücher</span>
+    <span class="tag green">Sachbücher</span>
+    <span class="tag red">Romane &amp; Belletristik</span>
+    <span class="tag orange">Alles auf Anfrage</span>
+    <span class="tag pink">Riesige Auswahl</span>
+  </div>
+</div>
+
+<!-- KREATIV -->
+<div class="section" id="kreativ" style="background: #fdf6ff; border-radius: 0;">
+  <span class="section-label">🎨 Kreativ</span>
+  <h2>Kreativ <span class="u">sein</span> – <span class="p">Ma</span><span class="o">len</span>, <span class="g">Ba</span><span class="b">steln</span>, <span class="r">Gestalten</span></h2>
+  <p>
+    Bei Papierfuchs findest du eine tolle Auswahl an hochwertigen Kreativprodukten –
+    für kleine und große Künstlerherzen. Ob Malen, Basteln, Kneten oder Werken:
+    hier ist für jeden etwas dabei!
+  </p>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.4rem;">
+
+    <div style="background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #e8d8f5; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
+      <div style="font-size:1.8rem; margin-bottom:.4rem;">🖊️</div>
+      <strong style="color:var(--purple); font-size:.9rem;">Jolly Supersoft 3in1 Stifte</strong>
+      <p style="font-size:.82rem; color:#555; margin: .4rem 0 0; line-height:1.4;">Filz-, Buntstift &amp; Wasserfarbe in einem – perfekt für kreative Kinder.</p>
+    </div>
+
+    <div style="background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #d8eef5; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
+      <div style="font-size:1.8rem; margin-bottom:.4rem;">🎨</div>
+      <strong style="color:var(--teal); font-size:.9rem;">Jolly Wassermalfarben 24er</strong>
+      <p style="font-size:.82rem; color:#555; margin: .4rem 0 0; line-height:1.4;">24 leuchtende Farben für kreative Kunstwerke auf Papier.</p>
+    </div>
+
+    <div style="background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #fde8f1; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
+      <div style="font-size:1.8rem; margin-bottom:.4rem;">🌀</div>
+      <strong style="color:var(--pink); font-size:.9rem;">Farbschleuder</strong>
+      <p style="font-size:.82rem; color:#555; margin: .4rem 0 0; line-height:1.4;">Kunst die sich im Kreis dreht – dynamische Bilder durch langsames oder schnelles Drehen.</p>
+    </div>
+
+    <div style="background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #fff0e5; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
+      <div style="font-size:1.8rem; margin-bottom:.4rem;">✏️</div>
+      <strong style="color:var(--orange); font-size:.9rem;">Airbrush Starter Set</strong>
+      <p style="font-size:.82rem; color:#555; margin: .4rem 0 0; line-height:1.4;">Für spektakuläre Farbverläufe und Airbrush-Effekte – ab sofort bei uns erhältlich.</p>
+    </div>
+
+    <div style="background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #edf9ec; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
+      <div style="font-size:1.8rem; margin-bottom:.4rem;">🧱</div>
+      <strong style="color:var(--green); font-size:.9rem;">Vegane Knete</strong>
+      <p style="font-size:.82rem; color:#555; margin: .4rem 0 0; line-height:1.4;">Weiche, bunte Knete ohne tierische Inhaltsstoffe – ideal für kleine Hände.</p>
+    </div>
+
+    <div style="background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #e8eef8; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
+      <div style="font-size:1.8rem; margin-bottom:.4rem;">🔨</div>
+      <strong style="color:var(--blue); font-size:.9rem;">Speckstein Gravier-Set</strong>
+      <p style="font-size:.82rem; color:#555; margin: .4rem 0 0; line-height:1.4;">Naturstein selber gestalten – fördert Kreativität, Geduld und Feinmotorik.</p>
+    </div>
+
+    <div style="background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #fdeaec; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
+      <div style="font-size:1.8rem; margin-bottom:.4rem;">📦</div>
+      <strong style="color:var(--red); font-size:.9rem;">Kreativ Box Mixed</strong>
+      <p style="font-size:.82rem; color:#555; margin: .4rem 0 0; line-height:1.4;">Eine bunte Box voller Bastelmaterialien – das perfekte Geschenk für kreative Köpfe.</p>
+    </div>
+
+    <div style="background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #e8d8f5; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
+      <div style="font-size:1.8rem; margin-bottom:.4rem;">🎀</div>
+      <strong style="color:var(--purple); font-size:.9rem;">Kordel für Armbänder</strong>
+      <p style="font-size:.82rem; color:#555; margin: .4rem 0 0; line-height:1.4;">Bastelspaß für Groß und Klein – bunte Armbänder selber machen.</p>
+    </div>
+
+  </div>
+
+  <div class="highlight-box hl-purple" style="margin-top: 1.5rem;">
+    🎨 <strong>Noch mehr entdecken:</strong> Das ist nur eine Auswahl – frag uns einfach, was dich interessiert. Wir haben noch viel mehr!
+  </div>
+  <div class="tag-list">
+    <span class="tag purple">Malfarben &amp; Stifte</span>
+    <span class="tag pink">Bastelmaterial</span>
+    <span class="tag orange">Kreativsets</span>
+    <span class="tag green">Kneten &amp; Formen</span>
+    <span class="tag blue">Werken &amp; Gestalten</span>
+    <span class="tag teal">Für alle Altersgruppen</span>
+  </div>
+</div>
+
+<!-- FEIERLICHKEITEN -->
+<div class="section" id="feierlichkeiten">
+  <span class="section-label">✨ Feierlichkeiten</span>
+  <h2>Für die <span class="p">schönsten</span> <span class="r">An</span><span class="o">lässe</span> <span class="u">im</span> <span class="t">Leben</span></h2>
+  <p>
+    Hochzeit, Taufe, Erstkommunion oder Firmung – bei Papierfuchs findest du alles, um diese besonderen Momente festlich zu gestalten. Von Karten über Deko bis zu passenden Geschenkideen.
+  </p>
+  <p>
+    Sprich uns einfach an – wir beraten dich gerne persönlich und stellen dir individuelle Vorschläge zusammen.
+  </p>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.4rem;">
+
+    <div style="background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #fde8f1; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
+      <div style="font-size:1.8rem; margin-bottom:.4rem;">💍</div>
+      <strong style="color:var(--pink); font-size:.9rem;">Hochzeit</strong>
+      <p style="font-size:.82rem; color:#555; margin: .4rem 0 0; line-height:1.4;">Edle Glückwunschkarten, Gästebücher, Kuverts und festliche Accessoires für den schönsten Tag.</p>
+    </div>
+
+    <div style="background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #d8eef5; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
+      <div style="font-size:1.8rem; margin-bottom:.4rem;">🕊️</div>
+      <strong style="color:var(--teal); font-size:.9rem;">Taufe</strong>
+      <p style="font-size:.82rem; color:#555; margin: .4rem 0 0; line-height:1.4;">Liebevoll gestaltete Taufkarten, Patengeschenke, Erinnerungsalben und zarte Deko für die Feier.</p>
+    </div>
+
+    <div style="background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #fff0e5; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
+      <div style="font-size:1.8rem; margin-bottom:.4rem;">🕯️</div>
+      <strong style="color:var(--orange); font-size:.9rem;">Erstkommunion</strong>
+      <p style="font-size:.82rem; color:#555; margin: .4rem 0 0; line-height:1.4;">Glückwunschkarten, Kerzenzubehör, Gotteslobhüllen und persönliche Geschenke zum großen Fest.</p>
+    </div>
+
+    <div style="background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #e8d8f5; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
+      <div style="font-size:1.8rem; margin-bottom:.4rem;">🌟</div>
+      <strong style="color:var(--purple); font-size:.9rem;">Firmung</strong>
+      <p style="font-size:.82rem; color:#555; margin: .4rem 0 0; line-height:1.4;">Stilvolle Firmungskarten, moderne Geschenkbücher und bleibende Erinnerungsstücke für Firmlinge.</p>
+    </div>
+
+    <div style="background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #edf9ec; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
+      <div style="font-size:1.8rem; margin-bottom:.4rem;">🎀</div>
+      <strong style="color:var(--green); font-size:.9rem;">Deko &amp; Feines</strong>
+      <p style="font-size:.82rem; color:#555; margin: .4rem 0 0; line-height:1.4;">Dekobänder, Servietten, Tischdeko und edles Geschenkpapier für ein stimmiges Gesamtbild.</p>
+    </div>
+
+    <div style="background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #e8eef8; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
+      <div style="font-size:1.8rem; margin-bottom:.4rem;">💌</div>
+      <strong style="color:var(--blue); font-size:.9rem;">Karten &amp; Geschenke</strong>
+      <p style="font-size:.82rem; color:#555; margin: .4rem 0 0; line-height:1.4;">Große Kartenauswahl für jeden Anlass, Geldgeschenk-Verpackungen und liebevolle Präsente.</p>
+    </div>
+
+  </div>
+
+  <div class="tag-list">
+    <span class="tag pink">Hochzeit</span>
+    <span class="tag teal">Taufe</span>
+    <span class="tag orange">Erstkommunion</span>
+    <span class="tag purple">Firmung</span>
+    <span class="tag blue">Karten &amp; Geschenke</span>
+  </div>
+</div>
+
+<!-- DEKORATION -->
+<div class="section" id="dekoration">
+  <span class="section-label">🏡 Dekoration</span>
+  <h2>Schön <span class="g">woh</span><span class="o">nen</span>, <span class="t">drin</span><span class="p">nen</span> wie <span class="b">drau</span><span class="r">ßen</span></h2>
+  <p>
+    Ob saisonale Deko, Accessoires für dein Zuhause oder hübsche Akzente für den Garten – bei uns findest du eine liebevoll ausgewählte Deko-Auswahl für jede Jahreszeit und jeden Anlass.
+  </p>
+  <div class="tag-list">
+    <span class="tag green">Haus &amp; Wohnen</span>
+    <span class="tag orange">Garten</span>
+    <span class="tag teal">Saisonale Deko</span>
+  </div>
+</div>
+
+<!-- SPIELZEUG -->
+<div class="section" id="spielzeug">
+  <span class="section-label">🧸 Spielzeug</span>
+  <h2><span class="o">Spiel</span><span class="p">spaß</span> für <span class="t">die</span> <span class="g">Klei</span><span class="b">nen</span></h2>
+  <p>
+    Ob Lego, Puppen, Gesellschaftsspiele oder viele weitere Überraschungen – bei Papierfuchs findest du eine schöne Auswahl an Spielzeug für jede Altersstufe.
+  </p>
+  <p>
+    Sag uns einfach, wonach du suchst – wir helfen dir gerne bei der Auswahl!
+  </p>
+  <div class="tag-list">
+    <span class="tag orange">Lego</span>
+    <span class="tag pink">Puppen</span>
+    <span class="tag blue">Spiele</span>
+    <span class="tag teal">uvm.</span>
+  </div>
+</div>
+
+<!-- GESCHENKE & WOHNEN -->
+<div class="section" id="geschenke">
+  <span class="section-label">🎁 Geschenke &amp; Wohnen</span>
+  <h2>Kleine <span class="p">Freu</span><span class="o">den</span> für <span class="t">Groß</span> <span class="g">&amp;</span> <span class="b">Klein</span></h2>
+  <p>
+    Hübsche Bilderrahmen und viele weitere Geschenkideen – bei Papierfuchs wirst du garantiert fündig, egal ob für den Alltag oder einen besonderen Anlass.
+  </p>
+  <div class="tag-list">
+    <span class="tag purple">Bilderrahmen</span>
+    <span class="tag pink">Geschenkideen</span>
+  </div>
+</div>
+
+<!-- TAGESMÜTTER -->
+<div class="section">
+  <span class="section-label">👶 Tagesmütter &amp; Pädagogik</span>
+  <h2>Unterstützung für <span class="g">Be</span><span class="t">treu</span><span class="b">ung</span><span class="u">s</span><span class="r">profis</span></h2>
+  <p>
+    Tagesmütter und pädagogische Fachkräfte leisten Großartiges – und verdienen Material,
+    das mithilft. Bei Papierfuchs findest du eine sorgfältige Auswahl an
+    <strong>pädagogisch wertvollen Artikeln</strong> und Kinderbüchern für den Betreuungsalltag.
+  </p>
+  <p>
+    Von Bilderbüchern für die Vorleserunde bis zu didaktischem Spielmaterial –
+    auf Anfrage stellen wir dir gerne eine persönliche Auswahl zusammen.
+  </p>
+  <div class="highlight-box hl-green">
+    👶 <strong>Für Tagesmütter:</strong> Bücher &amp; pädagogische Materialien – bequem anfragen und liefern lassen!
+  </div>
+  <div class="tag-list">
+    <span class="tag green">Kinderbücher</span>
+    <span class="tag teal">Pädagogische Artikel</span>
+    <span class="tag blue">Didaktisches Material</span>
+    <span class="tag purple">Fachbücher</span>
+    <span class="tag orange">Auf Anfrage</span>
+  </div>
+</div>
+
+
+<!-- FLYER -->
+<div class="flyer-wrap">
+  <h3>🦊 Über Papierfuchs</h3>
+  <div style="max-width: 680px; margin: 0 auto; text-align: center; color: var(--navy);">
+    <p style="font-size: 1.05rem; font-weight: 600; line-height: 1.6; margin-bottom: 1.2rem; color: var(--teal-d);">
+      Danke, dass du diesen Weg mit uns gehst – jeder Schritt zählt. Als Teil der Region stehen wir für Nähe, persönliche Beratung und bewusstes, nachhaltiges Handeln vor Ort.
+    </p>
+    <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+      Papierfuchs ist dein Fachhandel für Papier, Schreiben und Lesen – jetzt mit eigenem Ladengeschäft in Vorau. Ob Schule, Büro, kreative Projekte, Bücher, Feierlichkeiten oder Geschenke – wir bieten dir eine sorgfältig ausgewählte Auswahl direkt vor Ort, persönliche Beratung und jede Menge Inspiration.
+    </p>
+    <p style="font-size: 1.05rem; font-weight: 700; font-style: italic; color: var(--teal-d); margin-top: 1.5rem; margin-bottom: 0;">
+      Papierfuchs – mit Liebe zum Detail und Verantwortung für morgen.
+    </p>
+  </div>
+</div>
+
+<!-- KONTAKT -->
+<div class="contact-block" id="kontakt">
+  <h3>So erreichst du uns</h3>
+  <p style="color: rgba(255,255,255,.75); font-size: .93rem;">Wir freuen uns auf deine Anfrage!</p>
+  <ul class="contact-list">
+    <li>📱 Mobil: <a href="tel:+4366499525796">0664 99525796</a></li>
+    <li>✉️ E-Mail: <a href="mailto:info@papierfuchs.at">info@papierfuchs.at</a></li>
+    <li>🌐 Web: <a href="https://www.papierfuchs.at" target="_blank">www.papierfuchs.at</a></li>
+    <li>🟍 Klosterberggasse 8, 8250 Vorau und 8234 Rohrbach an der Lafnitz</li>
+  </ul>
+  <a class="cta-btn" href="mailto:info@papierfuchs.at">✉ Jetzt anfragen</a>
+  <p style="margin-top:2rem; font-size:.75rem; color:#4a6070;">
+    Papierfuchs · Schule ● Büro ● Kreatives · Rohrbach an der Lafnitz
+  </p>
+</div>
+
+
+<!-- IMPRESSUM -->
+<div class="impressum-wrap">
+  <div style="max-width:860px; margin:0 auto; text-align:center;">
+    <button id="impressum-btn" class="impressum-btn" onclick="toggleImpressum()">Impressum anzeigen</button>
+  </div>
+  <div id="impressum-content" style="max-width:860px; margin:1.2rem auto 0; display:none;">
+    <h4>Impressum</h4>
+    <p>
+      <strong style="color:#c8d8e4;">Papierfuchs</strong><br>
+      Inhaberin: Daniela Kainer<br>
+      Handelsgewerbe (WKO)<br>
+      Klosterberggasse 8, 8250 Vorau und 8234 Rohrbach an der Lafnitz, Österreich<br>
+      Mobil: <a href="tel:+4366499525796">0664 99525796</a><br>
+      E-Mail: <a href="mailto:info@papierfuchs.at">info@papierfuchs.at</a><br>
+      Web: <a href="https://www.papierfuchs.at" target="_blank">www.papierfuchs.at</a>
+    </p>
+    <p style="margin-top:.8rem; font-size:.77rem; color:#5a6a7a;">
+      © 2025 Papierfuchs – Daniela Kainer. Alle Rechte vorbehalten.<br>
+      Inhalt dieser Website darf nicht ohne ausdrückliche Genehmigung vervielfältigt werden.
+    </p>
+  </div>
+</div>
+
+<script>
+function toggleImpressum() {
+  var content = document.getElementById('impressum-content');
+  var btn = document.getElementById('impressum-btn');
+  if (content.style.display === 'none' || content.style.display === '') {
+    content.style.display = 'block';
+    btn.textContent = 'Impressum ausblenden';
+  } else {
+    content.style.display = 'none';
+    btn.textContent = 'Impressum anzeigen';
+  }
+}
+</script>
+
+</body>
+</html>
