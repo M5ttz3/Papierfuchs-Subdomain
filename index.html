@@ -120,22 +120,22 @@
 
   /* ––– HEADER ––– */
   header {
-    background: #0197b2;
-    padding: 0 0 0.8rem;
+    background: #ffffff;
+    padding: 1.4rem 1rem 1.1rem;
     text-align: center;
     position: relative;
+    border-bottom: 1px solid #e6edf0;
   }
   .logo-wrap {
-    padding: 0.5rem 1rem 0.1rem;
+    padding: 0.2rem 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   .logo-wrap img {
-    max-width: min(240px, 92vw);
+    max-width: min(390px, 88vw);
     height: auto;
     display: block;
-    border-radius: .5rem;
   }
   .tagline {
     font-family: 'Poppins', sans-serif;
@@ -143,6 +143,109 @@
     color: var(--navy);
     letter-spacing: .06em;
     padding: .1rem 0;
+  }
+
+  /* ––– ERÖFFNUNGS-POPOUT (MODAL) ––– */
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 25, 40, 0.78);
+    backdrop-filter: blur(4px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.2rem;
+    animation: fadeInPopup 0.3s ease;
+  }
+  @keyframes fadeInPopup {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .popup-box {
+    position: relative;
+    max-width: 480px;
+    width: 100%;
+    max-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: slideUpPopup 0.3s ease;
+  }
+  @keyframes slideUpPopup {
+    from { transform: scale(0.92) translateY(20px); opacity: 0; }
+    to { transform: scale(1) translateY(0); opacity: 1; }
+  }
+  .popup-close-btn {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 2px solid #cde8ea;
+    color: var(--navy);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 10002;
+    transition: transform 0.15s ease, background-color 0.15s ease;
+  }
+  .popup-close-btn:hover {
+    transform: scale(1.1);
+    background: #fde8ec;
+    color: var(--red);
+  }
+  .popup-poster-img {
+    width: 100%;
+    max-height: 78vh;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.4);
+    display: block;
+    cursor: pointer;
+    background: #ffffff;
+  }
+  .popup-footer {
+    margin-top: 0.75rem;
+    text-align: center;
+  }
+  .popup-pdf-link {
+    display: inline-block;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 0.4rem 1.1rem;
+    border-radius: 2rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .popup-pdf-link:hover {
+    background: #ffffff;
+    color: var(--navy);
+  }
+  @media (max-width: 550px) {
+    .popup-box {
+      max-width: 94vw;
+    }
+    .popup-close-btn {
+      top: -10px;
+      right: -10px;
+      width: 34px;
+      height: 34px;
+      font-size: 1.3rem;
+    }
   }
   .delivery-badge {
     display: inline-block;
@@ -454,13 +557,12 @@
   </div>
 </nav>
 
-<!-- HEADER mit echtem Logo -->
+<!-- HEADER mit neuem Logo -->
 <header>
   <div class="logo-wrap">
-    <img src="assets/bilder/logo.jpeg" alt="Papierfuchs Logo – Schule ● Büro ● Kreatives">
+    <img src="assets/bilder/Logo_neu.png" alt="Papierfuchs Logo – Schule ● Büro ● Geschenke ● Kreatives">
   </div>
-  <p class="tagline">Schule &bull; Büro &bull; Kreatives</p>
-  <p class="tagline" style="font-size:.85rem; color: var(--navy); opacity: 0.8; margin-top:.2rem;">🏠 Dein regionales Geschäft in Rohrbach an der Lafnitz</p>
+  <p class="tagline" style="font-size:.9rem; color: var(--navy); opacity: 0.85; margin-top:.4rem;">🏠 Dein Fachgeschäft in Vorau &amp; regionaler Partner</p>
 </header>
 
 <!-- UNSER GESCHÄFT -->
@@ -960,7 +1062,33 @@
   </div>
 </div>
 
+<!-- POPUP ERÖFFNUNG -->
+<div id="opening-popup" class="popup-overlay" onclick="if(event.target === this) closePopup();">
+  <div class="popup-box">
+    <button class="popup-close-btn" onclick="closePopup()" aria-label="Schließen">&times;</button>
+    <a href="assets/bilder/Einladungsplakat_A4_DRUCK.pdf" target="_blank" title="Plakat in voller Größe / als PDF öffnen">
+      <img src="assets/bilder/Einladungsplakat_A4_DRUCK.jpg" alt="Einladung zur Eröffnung am 3. Oktober 2026 - Papierfuchs in Vorau" class="popup-poster-img">
+    </a>
+    <div class="popup-footer">
+      <a href="assets/bilder/Einladungsplakat_A4_DRUCK.pdf" target="_blank" class="popup-pdf-link">
+        📄 Plakat als PDF ansehen / drucken
+      </a>
+    </div>
+  </div>
+</div>
+
 <script>
+function closePopup() {
+  var modal = document.getElementById('opening-popup');
+  if (modal) {
+    modal.style.display = 'none';
+  }
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closePopup();
+  }
+});
 function toggleImpressum() {
   var content = document.getElementById('impressum-content');
   var btn = document.getElementById('impressum-btn');
