@@ -240,6 +240,13 @@
       font-size: 1.3rem;
     }
   }
+  .anlass-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .anlass-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12) !important;
+  }
   .delivery-badge {
     display: inline-block;
     margin-top: 1rem;
@@ -882,50 +889,127 @@
 
   <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.4rem;">
 
-    <div style="background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #fde8f1; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
+    <a href="#hochzeit" class="anlass-card" style="text-decoration:none; color:inherit; display:block; background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #fde8f1; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
       <div style="font-size:1.8rem; margin-bottom:.4rem;">💍</div>
       <strong style="color:var(--pink); font-size:.9rem;">Hochzeit</strong>
       <p style="font-size:.82rem; color:#555; margin: .4rem 0 0; line-height:1.4;">Edle Glückwunschkarten, Gästebücher, Kuverts und festliche Accessoires für den schönsten Tag.</p>
-    </div>
+    </a>
 
-    <div style="background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #d8eef5; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
+    <a href="#taufe" class="anlass-card" style="text-decoration:none; color:inherit; display:block; background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #d8eef5; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
       <div style="font-size:1.8rem; margin-bottom:.4rem;">🕊️</div>
       <strong style="color:var(--teal); font-size:.9rem;">Taufe</strong>
       <p style="font-size:.82rem; color:#555; margin: .4rem 0 0; line-height:1.4;">Liebevoll gestaltete Taufkarten, Patengeschenke, Erinnerungsalben und zarte Deko für die Feier.</p>
-    </div>
+    </a>
 
-    <div style="background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #fff0e5; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
+    <a href="#erstkommunion" class="anlass-card" style="text-decoration:none; color:inherit; display:block; background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #fff0e5; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
       <div style="font-size:1.8rem; margin-bottom:.4rem;">🕯️</div>
       <strong style="color:var(--orange); font-size:.9rem;">Erstkommunion</strong>
       <p style="font-size:.82rem; color:#555; margin: .4rem 0 0; line-height:1.4;">Glückwunschkarten, Kerzenzubehör und persönliche Geschenke zum großen Fest.</p>
-    </div>
+    </a>
 
-    <div style="background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #e8d8f5; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
+    <a href="#firmung" class="anlass-card" style="text-decoration:none; color:inherit; display:block; background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #e8d8f5; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
       <div style="font-size:1.8rem; margin-bottom:.4rem;">🌟</div>
       <strong style="color:var(--purple); font-size:.9rem;">Firmung</strong>
       <p style="font-size:.82rem; color:#555; margin: .4rem 0 0; line-height:1.4;">Stilvolle Firmungskarten, moderne Geschenkbücher und bleibende Erinnerungsstücke für Firmlinge.</p>
-    </div>
+    </a>
 
-    <div style="background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #edf9ec; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
+    <a href="#dekoration" class="anlass-card" style="text-decoration:none; color:inherit; display:block; background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #edf9ec; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
       <div style="font-size:1.8rem; margin-bottom:.4rem;">🎀</div>
       <strong style="color:var(--green); font-size:.9rem;">Deko &amp; Feines</strong>
       <p style="font-size:.82rem; color:#555; margin: .4rem 0 0; line-height:1.4;">Dekobänder, Servietten, Tischdeko und edles Geschenkpapier für ein stimmiges Gesamtbild.</p>
-    </div>
+    </a>
 
-    <div style="background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #e8eef8; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
+    <a href="#geschenke" class="anlass-card" style="text-decoration:none; color:inherit; display:block; background:#fff; border-radius:.8rem; padding:1rem; border: 1.5px solid #e8eef8; box-shadow: 0 2px 8px rgba(0,0,0,.06);">
       <div style="font-size:1.8rem; margin-bottom:.4rem;">💌</div>
       <strong style="color:var(--blue); font-size:.9rem;">Karten &amp; Geschenke</strong>
       <p style="font-size:.82rem; color:#555; margin: .4rem 0 0; line-height:1.4;">Große Kartenauswahl für jeden Anlass, Geldgeschenk-Verpackungen und liebevolle Präsente.</p>
-    </div>
+    </a>
 
   </div>
 
   <div class="tag-list">
-    <span class="tag pink">Hochzeit</span>
-    <span class="tag teal">Taufe</span>
-    <span class="tag orange">Erstkommunion</span>
-    <span class="tag purple">Firmung</span>
-    <span class="tag blue">Karten &amp; Geschenke</span>
+    <a href="#hochzeit" class="tag pink" style="text-decoration:none;">Hochzeit</a>
+    <a href="#taufe" class="tag teal" style="text-decoration:none;">Taufe</a>
+    <a href="#erstkommunion" class="tag orange" style="text-decoration:none;">Erstkommunion</a>
+    <a href="#firmung" class="tag purple" style="text-decoration:none;">Firmung</a>
+    <a href="#dekoration" class="tag green" style="text-decoration:none;">Deko</a>
+    <a href="#geschenke" class="tag blue" style="text-decoration:none;">Karten &amp; Geschenke</a>
+  </div>
+</div>
+
+<!-- HOCHZEIT -->
+<div class="section" id="hochzeit">
+  <span class="section-label">💍 Hochzeit</span>
+  <h2>Für den <span class="p">schöns</span><span class="r">ten</span> <span class="o">Tag</span> im <span class="t">Leben</span></h2>
+  <p>
+    Ob edle Einladungskarten, Glückwunschkarten, Gästebücher, Kuverts oder festliche Deko – bei uns findest du alles, um diesen besonderen Tag liebevoll und stilvoll zu gestalten.
+  </p>
+  <p>
+    Komm gerne bei uns vorbei – wir beraten dich persönlich und helfen dir bei der Auswahl passender Papeterie und Accessoires für deine Traumhochzeit.
+  </p>
+  <div class="tag-list">
+    <span class="tag pink">Glückwunschkarten</span>
+    <span class="tag purple">Gästebücher</span>
+    <span class="tag teal">Kuverts &amp; Bänder</span>
+    <span class="tag orange">Festliche Papeterie</span>
+    <span class="tag blue">Geschenkideen</span>
+  </div>
+</div>
+
+<!-- TAUFE -->
+<div class="section" id="taufe">
+  <span class="section-label">🕊️ Taufe</span>
+  <h2>Ein <span class="t">liebe</span><span class="b">volles</span> <span class="g">Will</span><span class="p">kom</span><span class="o">men</span></h2>
+  <p>
+    Feiere diesen großen Meilenstein mit wunderschön gestalteten Taufkarten, persönlichen Patengeschenken, Erinnerungsalben und zarter Festdeko.
+  </p>
+  <p>
+    Wir helfen dir gerne dabei, die passenden Präsente und bleibenden Erinnerungsstücke für die Feier auszuwählen.
+  </p>
+  <div class="tag-list">
+    <span class="tag teal">Taufkarten</span>
+    <span class="tag blue">Patengeschenke</span>
+    <span class="tag green">Erinnerungsalben</span>
+    <span class="tag pink">Taufdeko</span>
+    <span class="tag orange">Geschenkideen</span>
+  </div>
+</div>
+
+<!-- ERSTKOMMUNION -->
+<div class="section" id="erstkommunion">
+  <span class="section-label">🕯️ Erstkommunion</span>
+  <h2>Ein <span class="o">gro</span><span class="p">ßer</span> <span class="t">Schritt</span> für die <span class="g">Klei</span><span class="b">nen</span></h2>
+  <p>
+    Glückwunschkarten, Kerzenzubehör, persönliche Geschenke und stimmige Tischdeko für den festlichen Erstkommunionstag.
+  </p>
+  <p>
+    Sprich uns einfach an – wir beraten dich gerne für diesen besonderen Festtag!
+  </p>
+  <div class="tag-list">
+    <span class="tag orange">Glückwunschkarten</span>
+    <span class="tag teal">Kerzenzubehör</span>
+    <span class="tag purple">Erinnerungsstücke</span>
+    <span class="tag green">Tischdeko</span>
+    <span class="tag blue">Geschenke</span>
+  </div>
+</div>
+
+<!-- FIRMUNG -->
+<div class="section" id="firmung">
+  <span class="section-label">🌟 Firmung</span>
+  <h2>Begeisterung <span class="u">&amp;</span> <span class="p">Er</span><span class="o">in</span><span class="t">ne</span><span class="g">rung</span></h2>
+  <p>
+    Stilvolle Firmungskarten, moderne Geschenkbücher, edle Gutscheinverpackungen und bleibende Erinnerungsstücke für Firmlinge und Paten.
+  </p>
+  <p>
+    Finde bei uns das passende Geschenk und persönliche Glückwünsche für diesen bedeutenden Schritt.
+  </p>
+  <div class="tag-list">
+    <span class="tag purple">Firmungskarten</span>
+    <span class="tag blue">Paten-Präsente</span>
+    <span class="tag orange">Geschenkbücher</span>
+    <span class="tag teal">Erinnerungsstücke</span>
+    <span class="tag pink">Gutscheinverpackungen</span>
   </div>
 </div>
 
