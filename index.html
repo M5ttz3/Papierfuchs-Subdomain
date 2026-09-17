@@ -159,9 +159,10 @@
     align-items: center;
     justify-content: center;
     padding: 1.2rem;
-    animation: fadeInPopup 0.3s ease;
+    overflow: hidden;
+    animation: fadeInOverlay 0.4s ease;
   }
-  @keyframes fadeInPopup {
+  @keyframes fadeInOverlay {
     from { opacity: 0; }
     to { opacity: 1; }
   }
@@ -173,11 +174,23 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    animation: slideUpPopup 0.3s ease;
+    animation: flyInPopup 0.7s cubic-bezier(0.22, 1.15, 0.36, 1);
   }
-  @keyframes slideUpPopup {
-    from { transform: scale(0.92) translateY(20px); opacity: 0; }
-    to { transform: scale(1) translateY(0); opacity: 1; }
+  @keyframes flyInPopup {
+    0% {
+      opacity: 0;
+      transform: translateY(-100vh) scale(0.85);
+    }
+    60% {
+      opacity: 1;
+    }
+    82% {
+      transform: translateY(12px) scale(1.01);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
   }
   .popup-close-btn {
     position: absolute;
